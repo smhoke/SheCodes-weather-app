@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>The Weather Machine</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <header>The Weather Machine ⚙️</header>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <h3></h3>
+          <p id="current-date-and-time">
+            <span id="current-date">Saturday</span>
+            <br />
+            <span id="current-time">20:35</span>
+          </p>
+        </div>
+        <div class="col-3">
+          <div class="search-wrap">
+            <div class="search-box">
+              <form>
+              <input type="text" id="searchBar" placeholder="Enter city name..." />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button id="current-location-button">📍 </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">🌄 Sunrise: 07:08</br>🌡 <span id="current-low-temp">39</span>°</div>
+        <div class="col-8">
+          <h1>
+            <span id="current-temp"> °</span> 
+            <a href="#" id="fahrenheit">F</a>
+            /
+            <a href="#" id="celcius">C</a>
+            <br />
+            ☀️
+            <br />
+            <span id="currentDescription"></span>
+          </h1>
+          <p class="today-details">
+            Feels Like: <span id="feelsLike"> </span>°
+            <br />
+            Humidity: <span id="humidity"></span>%
+            <br />
+            Wind: <span id="wind"> </span> mph
+          </p>
+        </div>
+        <div class="col-2">
+          🌅 Sunset: 19:01
+        </br>
+          🌡 <span id="current-high-temp"></span>° 
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          Sunday
+          <br />
+          ☀️
+          <p class="future-temp">25/52</p>
+        </div>
+        <div class="col-sm">
+          Monday
+          <br />
+          ☀️
+          <p class="future-temp">28/43</p>
+        </div>
+        <div class="col-sm">
+          Tuesday
+          <br />
+          ☁️
+          <p class="future-temp">37/41</p>
+        </div>
+        <div class="col-sm">
+          Wednesday
+          <br />
+          🌧
+          <p class="future-temp">43/46</p>
+        </div>
+        <div class="col-sm">
+          Thursday
+          <br />
+          🌧
+          <p class="future-temp">41/52</p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

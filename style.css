@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(60deg, #f5f7fa 20%, #c3cfe2 60%);
+  font-family: "Raleway", sans-serif;
+}
+header {
+  color: #949aa9;
+  font-size: 48px;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+.today-details {
+  text-align: center;
+  color: #1e77c0;
+}
+.future-temp {
+  color: #1e77c0;
+}
+.search-wrap {
+  text-align: right;
+}
