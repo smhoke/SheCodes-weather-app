@@ -3,6 +3,7 @@ html {
 }
 body {
   background: linear-gradient(60deg, #f5f7fa 20%, #c3cfe2 60%);
+  background-repeat: no-repeat;
   font-family: "Raleway", sans-serif;
 }
 .weather-app {
