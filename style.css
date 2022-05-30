@@ -31,3 +31,10 @@ h1 {
 .search-wrap {
   text-align: right;
 }
+.active {
+  text-decoration: none;
+  color: #272244;
+}
+.active:hover {
+  cursor: default;
+}

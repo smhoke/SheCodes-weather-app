@@ -1,5 +1,4 @@
 let now = new Date();
-
 //current date
 //day
 let days = [
@@ -60,7 +59,7 @@ form.addEventListener("submit", citySearch);
 function showWeather(response) {
   console.log(response.data);
   document.querySelector("h3").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(
+  document.querySelector("#currentTemp").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#currentDescription").innerHTML =
@@ -95,3 +94,29 @@ function userLocation(position) {
 
   axios.get(apiUrl).then(showWeather);
 }
+
+//change Temp to C when clickng C link
+fahrenheitTemp = null;
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  let currentTempElement = document.querySelector("#currentTemp");
+  currentTempElement.innerHTML = Math.round(celsiusTemp);
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
+}
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsiusTemp);
+//change Temp to F when clickng F link
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let currentTempElement = document.querySelector("#currentTemp");
+  currentTempElement.innerHTML = Math.round(fahrenheitTemp);
+  fahrenheit.classList.add("active");
+  celsius.classList.remove("active");
+}
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheitTemp);
+
+//display nyc weather on load
+citySearch("New York");
