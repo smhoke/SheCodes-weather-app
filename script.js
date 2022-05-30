@@ -64,6 +64,11 @@ function showWeather(response) {
   currentHighTempElement.innerHTML = Math.round(response.data.main.temp_max);
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  let currrentWeatherIcon = document.querySelector("#currentWeatherIcon");
+  currrentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   //document.querySelector("#sunrise").innerHTML = Math.round(response.data.sys.sunset);
   //document.querySelector("#sunset").innerHTML = Math.round(response.data.sys.sunrise);
   fahrenheitTemp = response.data.main.temp;
