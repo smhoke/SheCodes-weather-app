@@ -22,7 +22,7 @@
     <div class="container">
       <div class="row">
         <div class="col-6">
-          <h3></h3>
+          <h3 id="currentCity"></h3>
           <p id="current-date-and-time">
             <span id="current-date">Saturday</span>
             <br />
@@ -44,14 +44,14 @@
       </div>
 
       <div class="row">
-        <div class="col-2">🌄 Sunrise: 07:08</br>🌡 <span id="current-low-temp">39</span>°</div>
+        <div class="col-2" id="sunrise">🌄 Sunrise: 07:08</br>🌡 <span id="current-low-temp">39</span>°</div>
         <div class="col-8">
           <h1>
-            <span id="currentTemp"> </span>°
-            <a href="#" id="fahrenheit">F</a>
-            <a href="#" class="active" id="celcius">C</a>
+            <span id="currentTemp"></span>° 
+            <a href="#" class="active" id="fahrenheit">F</a>
+            <a href="#" id="celsius">C</a>
             <br />
-            ☀️
+            <span class="current-weather-icon">☀️</span> 
             <br />
             <span id="currentDescription"></span>
           </h1>
@@ -63,7 +63,7 @@
             Wind: <span id="wind"> </span> mph
           </p>
         </div>
-        <div class="col-2">
+        <div class="col-2" id="sunset">
           🌅 Sunset: 19:01
         </br>
           🌡 <span id="current-high-temp"></span>° 
