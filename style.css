@@ -21,6 +21,10 @@ header {
 h1 {
   text-align: center;
 }
+a {
+  display: inline-block;
+  font-size: medium;
+}
 .today-details {
   text-align: center;
   color: #1e77c0;
@@ -33,7 +37,7 @@ h1 {
 }
 .active {
   text-decoration: none;
-  color: #272244;
+  color: #22252a;
 }
 .active:hover {
   cursor: default;
