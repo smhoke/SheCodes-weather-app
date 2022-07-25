@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 body {
-  background: linear-gradient(60deg, #f5f7fa 20%, #c3cfe2 60%);
+  background: linear-gradient(75deg, #f5f7fa 20%, #c3cfe2 60%);
   background-repeat: no-repeat;
   font-family: "Raleway", sans-serif;
 }
@@ -41,4 +41,10 @@ a {
 }
 .active:hover {
   cursor: default;
+}
+.forecast {
+  text-align: center;
+}
+.forecastTemps {
+  color: #1e77c0;
 }
