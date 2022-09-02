@@ -107,7 +107,7 @@ function userLocation(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-//change Temp to C when clickng C link
+//change Temp to C when clicking C link
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
@@ -118,7 +118,7 @@ function displayCelsiusTemp(event) {
 }
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsiusTemp);
-//change Temp to F when clickng F link
+//change Temp to F when clicking F link
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let currentTempElement = document.querySelector("#currentTemp");
