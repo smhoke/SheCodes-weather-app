@@ -46,6 +46,55 @@ if (minutes < 10) {
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+//display weather forecast
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5)
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="col-sm">
+          <div class="forecastDay">
+          ${formatDay(forecastDay.dt)}
+          </div>
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="" width="42"/>
+          <div class="forecastTemps">
+            <span class="forecastLow">${Math.round(
+              forecastDay.temp.min
+            )}°</span> | <span class="forecastHigh">${Math.round(
+          forecastDay.temp.max
+        )}°</span>
+          </div>
+        </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "c0d34ff35f99187b8089dbc8ea55c072";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 //display weather on load or search
 function showWeather(response) {
   let currentCityElement = document.querySelector("#currentCity");
@@ -69,11 +118,16 @@ function showWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  //document.querySelector("#sunrise").innerHTML = Math.round(response.data.sys.sunset);
-  //document.querySelector("#sunset").innerHTML = Math.round(response.data.sys.sunrise);
+  //let sunriseElement = document.querySelector("#sunrise");
+  //sunriseElement.innerHTML = Math.round(response.data.sys.sunrise);
+  //let sunsetElement = document.querySelector("#sunset");
+  //sunsetElement.innerHTML = Math.round(response.data.sys.sunset);
   fahrenheitTemp = response.data.main.temp;
   console.log(response.data);
+
+  getForecast(response.data.coord);
 }
+
 //search for cities and import data
 function search(city) {
   let apiKey = "c0d34ff35f99187b8089dbc8ea55c072";
@@ -118,6 +172,7 @@ function displayCelsiusTemp(event) {
 }
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsiusTemp);
+
 //change Temp to F when clicking F link
 function displayFahrenheitTemp(event) {
   event.preventDefault();
